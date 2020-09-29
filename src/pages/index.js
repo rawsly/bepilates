@@ -2,7 +2,7 @@ import React from "react"
 
 import ScrollupSection from "../components/scrollupSection/scrollUp"
 import Header from "../components/headerSection/headerTwo"
-import WelcomeSection from "../components/welcomeSection/welcomeSeven"
+import WelcomeSection from "../components/welcomeSection/WelcomeSeven"
 import BrandingSection from "../components/brandingSection/branding"
 import AboutSection from "../components/aboutSection/aboutOne"
 import WorkSection from "../components/workSection/workOne"
@@ -17,29 +17,36 @@ import BlogSection from "../components/blogSection/blogOne"
 import ContactSection from "../components/contactSection/contact"
 import FooterSection from "../components/footerSection/footer"
 
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+
+
 const IndexPage = () => {
   console.log("index")
   return (
-    <div className="seoul">
-      <ScrollupSection />
-      <div className="all-area">
-        <Header imageData={"../img/logo-white.png"} />
-        <WelcomeSection />
-        <BrandingSection />
-        <AboutSection />
-        <WorkSection />
-        <FeatureSection />
-        <ScreenshotSection />
-        <PricingSection />
-        <ReviewSection />
-        <TeamSection />
-        <SubscribeSection />
-        <DownloadSection />
-        <BlogSection />
-        <ContactSection />
-        <FooterSection />
+    <Layout>
+      <SEO title="Home" />
+      <div className="seoul">
+        <ScrollupSection />
+        <div className="all-area">
+          <Header imageData={"../img/logo-white.png"} />
+          <WelcomeSection />
+          <BrandingSection />
+          <AboutSection />
+          <WorkSection />
+          <FeatureSection />
+          <ScreenshotSection />
+          <PricingSection />
+          <ReviewSection />
+          <TeamSection />
+          <SubscribeSection />
+          <DownloadSection />
+          <BlogSection />
+          <ContactSection />
+          <FooterSection />
+        </div>
       </div>
-    </div>
+    </Layout>
   )
 }
 export default IndexPage

@@ -8,7 +8,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
+import { withPrefix, useStaticQuery, graphql } from "gatsby"
 
 function SEO({ description, lang, meta, title }) {
   const { site } = useStaticQuery(
@@ -27,6 +27,8 @@ function SEO({ description, lang, meta, title }) {
 
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
+
+  console.log(site);
 
   return (
     <Helmet
@@ -69,7 +71,14 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
       ].concat(meta)}
-    />
+    >
+      <script src={withPrefix('/js/core.min.js')} type="text/javascript"></script>
+      <script src={withPrefix('/js/popper.min.js')} type="text/javascript"></script>
+      <script src={withPrefix('/js/bootstrap.min.js')} type="text/javascript"></script>
+      <script src={withPrefix('/js//plugins.min.js')} type="text/javascript"></script>
+      <script src={withPrefix('/js/typed.js')} type="text/javascript"></script>
+      <script src={withPrefix('/js/scripts.js')} type="text/javascript"></script>
+    </Helmet>
   )
 }
 

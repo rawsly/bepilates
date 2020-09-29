@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import ScrollupSection from '../components/scrollupSection/scrollUp';
 import Header from '../components/headerSection/headerTwo';
-import WelcomeSection from '../components/welcomeSection/welcomeSeven';
+import WelcomeSection from '../components/welcomeSection/WelcomeSeven';
 import BrandingSection from '../components/brandingSection/branding';
 import AboutSection from '../components/aboutSection/aboutOne';
 import WorkSection from '../components/workSection/workOne';
