@@ -1,51 +1,45 @@
-import React from 'react'
-import { Link, graphql } from 'gatsby'
-import Masonry from 'react-masonry-component'
-import Img from 'gatsby-image'
-import Layout from "../components/layout"
+import React from "react"
 
-const IndexPage = ({ data }) => (
-  <Layout>
-    <Masonry className="showcase">
-      {data.allDatoCmsWork.edges.map(({ node: work }) => (
-        <div key={work.id} className="showcase__item">
-          <figure className="card">
-            <Link to={`/works/${work.slug}`} className="card__image">
-              <Img fluid={work.coverImage.fluid} />
-            </Link>
-            <figcaption className="card__caption">
-              <h6 className="card__title">
-                <Link to={`/works/${work.slug}`}>{work.title}</Link>
-              </h6>
-              <div className="card__description">
-                <p>{work.excerpt}</p>
-              </div>
-            </figcaption>
-          </figure>
-        </div>
-      ))}
-    </Masonry>
-  </Layout>
-)
+import ScrollupSection from "../components/scrollupSection/scrollUp"
+import Header from "../components/headerSection/headerTwo"
+import WelcomeSection from "../components/welcomeSection/welcomeSeven"
+import BrandingSection from "../components/brandingSection/branding"
+import AboutSection from "../components/aboutSection/aboutOne"
+import WorkSection from "../components/workSection/workOne"
+import FeatureSection from "../components/featureSection/featureOne"
+import ScreenshotSection from "../components/screenshotSection/screenshot"
+import PricingSection from "../components/pricingSection/pricingOne"
+import ReviewSection from "../components/reviewSection/reviewOne"
+import TeamSection from "../components/teamSection/teamOne"
+import SubscribeSection from "../components/subscribeSection/subscribeOne"
+import DownloadSection from "../components/downloadSection/downloadOne"
+import BlogSection from "../components/blogSection/blogOne"
+import ContactSection from "../components/contactSection/contact"
+import FooterSection from "../components/footerSection/footer"
 
+const IndexPage = () => {
+  console.log("index")
+  return (
+    <div className="seoul">
+      <ScrollupSection />
+      <div className="all-area">
+        <Header imageData={"../img/logo-white.png"} />
+        <WelcomeSection />
+        <BrandingSection />
+        <AboutSection />
+        <WorkSection />
+        <FeatureSection />
+        <ScreenshotSection />
+        <PricingSection />
+        <ReviewSection />
+        <TeamSection />
+        <SubscribeSection />
+        <DownloadSection />
+        <BlogSection />
+        <ContactSection />
+        <FooterSection />
+      </div>
+    </div>
+  )
+}
 export default IndexPage
-
-export const query = graphql`
-  query IndexQuery {
-    allDatoCmsWork(sort: { fields: [position], order: ASC }) {
-      edges {
-        node {
-          id
-          title
-          slug
-          excerpt
-          coverImage {
-            fluid(maxWidth: 450, imgixParams: { fm: "jpg", auto: "compress" }) {
-              ...GatsbyDatoCmsSizes
-            }
-          }
-        }
-      }
-    }
-  }
-`

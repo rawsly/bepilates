@@ -1,0 +1,11 @@
+import './src/assets/css/bootstrap.min.css';
+import './src/assets/css/icofont.min.css';
+import './src/assets/css/all.min.css';
+import './src/assets/css/animate.min.css';
+import './src/assets/css/aos.css';
+import './src/assets/css/owl.carousel.min.css';
+import './src/assets/css/slick.css';
+import './src/assets/css/fancybox.min.css';
+import './src/assets/css/style.css';
+import './src/assets/css/responsive.css';
+import "./src/styles/global.css";
