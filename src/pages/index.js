@@ -2,7 +2,7 @@ import React from "react"
 
 import ScrollupSection from "../components/scrollupSection/scrollUp"
 import Header from "../components/Header/Header";
-import WelcomeSection from "../components/welcomeSection/WelcomeSeven"
+import WelcomeSeven from "../components/welcomeSection/WelcomeSeven"
 import BrandingSection from "../components/brandingSection/branding"
 import AboutSection from "../components/aboutSection/aboutOne"
 import WorkSection from "../components/workSection/workOne"
@@ -20,9 +20,7 @@ import FooterSection from "../components/footerSection/footer"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-
 const IndexPage = () => {
-  console.log("index")
   return (
     <Layout>
       <SEO title="Home" />
@@ -30,7 +28,7 @@ const IndexPage = () => {
         <ScrollupSection />
         <div className="all-area">
           <Header imageData={"../img/logo-white.png"} />
-          <WelcomeSection />
+          <WelcomeSeven />
           <BrandingSection />
           <AboutSection />
           <WorkSection />
