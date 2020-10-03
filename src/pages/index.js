@@ -2,7 +2,7 @@ import React from "react"
 
 import ScrollupSection from "../components/scrollupSection/scrollUp"
 import Header from "../components/Header/Header";
-import WelcomeSeven from "../components/welcomeSection/WelcomeSeven"
+import Welcome from "../components/Welcome/Welcome";
 import BrandingSection from "../components/brandingSection/branding"
 import AboutSection from "../components/aboutSection/aboutOne"
 import WorkSection from "../components/workSection/workOne"
@@ -28,7 +28,7 @@ const IndexPage = () => {
         <ScrollupSection />
         <div className="all-area">
           <Header imageData={"../img/logo-white.png"} />
-          <WelcomeSeven />
+          <Welcome />
           <BrandingSection />
           <AboutSection />
           <WorkSection />
