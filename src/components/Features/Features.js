@@ -80,7 +80,7 @@ const Features = () => {
                       </a>
                     </h3>
                     <p>{feature.content}</p>
-                    <a href={feature.link} className="btn btn-bordered">
+                    <a href={feature.link} className="btn btn-bordered mg-t-1em">
                       <span>{feature.buttonText}</span>
                     </a>
                   </div>
