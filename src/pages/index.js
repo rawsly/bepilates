@@ -23,7 +23,7 @@ import SEO from "../components/seo"
 const IndexPage = () => {
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="Anasayfa" />
       <div className="seoul">
         <ScrollupSection />
         <div className="all-area">
