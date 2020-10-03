@@ -1,7 +1,7 @@
 import React from "react"
 
 import ScrollupSection from "../components/scrollupSection/scrollUp"
-import Header from "../components/headerSection/headerTwo"
+import Header from "../components/Header/Header";
 import WelcomeSection from "../components/welcomeSection/WelcomeSeven"
 import BrandingSection from "../components/brandingSection/branding"
 import AboutSection from "../components/aboutSection/aboutOne"

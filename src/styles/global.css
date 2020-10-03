@@ -1,0 +1,13 @@
+.navbar-brand {
+  height: 60px;
+  width: 60px;
+}
+
+.btn-sm {
+  padding: 7px 15px;
+  top: 3px;
+}
+
+.mg-l-10 {
+  margin-left: 10px;
+}

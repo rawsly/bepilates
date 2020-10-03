@@ -1,18 +1,32 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
+import { HEADING_MESSAGES } from '../../constants';
+
 const WelcomeSeven = () => {
   const [initData, setInitData] = useState({
-    heading: "Get all your things done with Appo",
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore doloribus illum quas ipsam quia, amet accusantium accusamus exercitationem quis, nihil numquam commodi esse maiores quisquam. Autem molestias eum aliquid sunt.",
-    btnText: "Get Started",
-  })
+      "Bahçeşehir'de pilates ve yoga studyomuzda herkes için bir ders planımız mevcut.",
+    headingDetail: "için bir pilates ve yoga studyosu",
+    btnText: "Dersleri İncele",
+    link: '#'
+  });
+  const [headingMessageIndex, setHeadingMessageIndex] = useState(0);
+
+  useEffect(() => {
+    const headingChangeInterval = setInterval(() => {
+      setHeadingMessageIndex(prevHeadingMessageIndex => (prevHeadingMessageIndex + 1) % HEADING_MESSAGES.length);
+    }, 3000);
+
+    return () => {
+      clearInterval(headingChangeInterval);
+    }
+  }, []);
 
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "welcome_mockup.png" }) {
+      placeholderImage: file(relativePath: { eq: "header-bg.png" }) {
         childImageSharp {
           fluid(maxWidth: 1000) {
             ...GatsbyImageSharpFluid
@@ -32,7 +46,10 @@ const WelcomeSeven = () => {
           {/* Welcome Intro Start */}
           <div className="col-12 col-md-10 col-lg-8">
             <div className="welcome-intro text-center">
-              <h1 className="text-white">{initData.heading}</h1>
+              <h1 className="text-white">
+                <span>{HEADING_MESSAGES[headingMessageIndex]}</span>
+                {initData.headingDetail}
+              </h1>
               <p className="text-white my-4">{initData.content}</p>
               <a href="#" className="btn btn-bordered-white">
                 <span>{initData.btnText}</span>
