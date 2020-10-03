@@ -129,7 +129,7 @@ const Header = () => {
                     <li
                         className="nav-item"
                     >
-                        <a href="#" class="btn btn-bordered-white btn-sm mg-l-10"><span>Dersleri İncele</span></a>
+                        <a href="#" className="btn btn-bordered-white btn-sm mg-l-10"><span>Dersleri İncele</span></a>
                     </li>
               </ul>
             </div>

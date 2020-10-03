@@ -26,7 +26,7 @@ const Welcome = () => {
 
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "header-bg.png" }) {
+      image: file(relativePath: { eq: "header-bg.png" }) {
         childImageSharp {
           fluid(maxWidth: 1000) {
             ...GatsbyImageSharpFluid
@@ -61,7 +61,7 @@ const Welcome = () => {
           <div className="col-12 col-sm-8 col-md-5 mx-auto">
             {/* Seoul Thumb */}
             <div className="seoul-thumb text-center pt-5">
-              <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+              <Img fluid={data.image.childImageSharp.fluid} />
             </div>
           </div>
         </div>
