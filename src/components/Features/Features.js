@@ -67,7 +67,6 @@ const Features = () => {
               <div
                 key={feature.key}
                 className="col-12 col-sm-12 col-md-4 col-lg-4"
-                data-aos="fade-up"
               >
                 <div className="benifits-item text-center p-3">
                   <div className="feature-icon feature-image">
