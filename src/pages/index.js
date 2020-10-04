@@ -43,7 +43,6 @@ const IndexPage = () => {
           <ReviewSection />
           <TeamSection />
           <BlogSection />
-          <ContactSection />
           <FooterSection />
         </div>
       </div>
