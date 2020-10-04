@@ -71,3 +71,14 @@
   left: unset;
   top: -17rem;
 }
+
+.about-thumb {
+  border-radius: 10px;
+  box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  transition: all 0.1s ease-in-out;
+}
+
+.about-thumb:hover {
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.6);
+}
