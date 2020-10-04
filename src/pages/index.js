@@ -14,7 +14,7 @@ import TeamSection from "../components/teamSection/teamOne"
 import Subscribe from "../components/Subscribe/Subscribe"
 import Download from "../components/Download/Download"
 import BlogSection from "../components/blogSection/blogOne"
-import ContactSection from "../components/contactSection/contact"
+import DetailedForm from "../components/DetailedForm/DetailedForm"
 import FooterSection from "../components/footerSection/footer"
 import Features from "../components/Features/Features";
 
@@ -34,6 +34,7 @@ const IndexPage = () => {
           <Features />
           <Download />
           <About />
+          <DetailedForm />
           <BrandingSection />
           <WorkSection />
           <FeatureSection />
