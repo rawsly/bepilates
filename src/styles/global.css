@@ -72,6 +72,17 @@
   top: -17rem;
 }
 
+.about-thumb {
+  border-radius: 10px;
+  box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  transition: all 0.1s ease-in-out;
+}
+
+.about-thumb:hover {
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.6);
+}
+
 .form-select {
   padding-left: 15px;
   padding-right: 15px;
@@ -149,10 +160,4 @@
 .form-submit-button {
   width: 100%;
   margin-top: 1rem;
-}
-
-.about-thumb {
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
 }
