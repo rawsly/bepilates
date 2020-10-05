@@ -24,7 +24,6 @@ $( document ).ready(function() {
     'use strict';
     var $window = $(window);
     var zero = 0;
-
     // :: 1.0 PRELOADER ACTIVE CODE
     $window.on('load', function () {
         $('#loader').fadeOut('slow', function () {
@@ -35,10 +34,8 @@ $( document ).ready(function() {
     // :: 2.0 STICKY HEADER ACTIVE CODE
     $window.on('scroll', function () {
         if ($(window).scrollTop() > 100) {
-            console.log("test");
             $('.main-header-area').addClass('navbar-sticky');
         } else {
-            console.log("test2");
             $('.main-header-area').removeClass('navbar-sticky');
         }
     });
@@ -193,7 +190,7 @@ $( document ).ready(function() {
         dots: true,
         arrows: false,
         speed: 2000,
-        slidesToShow: 4,
+        slidesToShow: 2,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3000,
@@ -225,7 +222,6 @@ $( document ).ready(function() {
             }
           ]
     });
-
     // :: 13.0 WORK SLIDER ACTIVE CODE
     $('.work-slider.owl-carousel').owlCarousel({
         items: 1,
@@ -337,5 +333,4 @@ $( document ).ready(function() {
                 }
             });
     });
-
 });

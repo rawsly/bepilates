@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 import _ from "lodash"
 
+import Title from '../../components/Title/Title';
+
 import {
   DETAILED_FORM_CLASS_TYPES,
   DETAILED_FORM_REASONS,
@@ -51,14 +53,7 @@ const DetailedForm = () => {
   return (
     <section id="contact" className="contact-area bg-gray ptb_100">
       <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-12 col-md-10 col-lg-6">
-            {/* Section Heading */}
-            <div className="section-heading text-center">
-              <h2 className="text-capitalize">{pageData.title}</h2>
-            </div>
-          </div>
-        </div>
+        <Title title={pageData.title} />
         <div className="row">
           <div className="col-12">
             {/* Contact Box */}

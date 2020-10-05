@@ -828,10 +828,6 @@ a,
     background: rgba(0, 0, 0, 0) url("/img/seoul_bg.jpg") no-repeat scroll center center / cover;
 }
 
-.work-slider-wrapper {
-    background: rgba(0, 0, 0, 0) url('/img/mobile_slider.png') no-repeat scroll top center;
-}
-
 .start-free-content {
     background: rgba(0, 0, 0, 0) url("/img/start_free.png") no-repeat scroll center center / cover;
 }
@@ -1462,20 +1458,23 @@ a,
     display: flex;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
-    justify-content: center;
+    justify-content: flex-start;
     -webkit-box-align: center;
     -ms-flex-align: center;
-    align-items: center;
+    align-items: flex-start;
     visibility: hidden;
     opacity: 0;
 }
 
 .screenshots-overlay > a {
-    height: 70px;
-    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
+    font-size: 24px;
+    height: 100%;
 }
 
 .screenshots-overlay i {

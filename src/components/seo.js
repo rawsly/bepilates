@@ -28,8 +28,6 @@ function SEO({ description, lang, meta, title }) {
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
 
-  console.log(site);
-
   return (
     <Helmet
       htmlAttributes={{
@@ -72,12 +70,6 @@ function SEO({ description, lang, meta, title }) {
         },
       ].concat(meta)}
     >
-      <script src={withPrefix('/js/core.min.js')} type="text/javascript"></script>
-      <script src={withPrefix('/js/popper.min.js')} type="text/javascript"></script>
-      <script src={withPrefix('/js/bootstrap.min.js')} type="text/javascript"></script>
-      <script src={withPrefix('/js/plugins.min.js')} type="text/javascript"></script>
-      <script src={withPrefix('/js/typed.js')} type="text/javascript"></script>
-      <script src={withPrefix('/js/scripts.js')} type="text/javascript"></script>
     </Helmet>
   )
 }
