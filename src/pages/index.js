@@ -20,32 +20,31 @@ import SEO from "../components/seo"
 
 const IndexPage = () => {
   return (
-    <>
-      <Layout>
-        <SEO title="Anasayfa" />
-        <div className="seoul">
-          <ScrollupSection />
-          <div className="all-area">
-            <Header />
-            <Welcome />
-            <Subscribe />
-            <Features />
-            <Download />
-            <About />
-            <DetailedForm />
-            <Carousel />
-            <Questions />
-            {/*TODO: Map Section*/}
-            {/* <BlogSection /> */}
-            <Map />
-            <Footer />
-          </div>
+    <Layout>
+      <SEO title="Anasayfa" />
+      <div className="seoul">
+        <ScrollupSection />
+        <div className="all-area">
+          <Header />
+          <Welcome />
+          <Subscribe />
+          <Features />
+          <Download />
+          <About />
+          <DetailedForm />
+          <Carousel />
+          <Questions />
+          {/*TODO: Map Section*/}
+          {/* <BlogSection /> */}
+          <Map />
+          <Footer />
         </div>
         <CustomPreloader>
           <Logo />
         </CustomPreloader>
-      </Layout>
-    </>
+      </div>
+      
+    </Layout>
   )
 }
 export default IndexPage
