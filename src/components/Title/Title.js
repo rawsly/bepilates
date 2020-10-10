@@ -9,7 +9,7 @@ const Title = ({ title, content }) => {
         </div>
       </div>
       <div className="col-12 col-md-12 col-lg-12">
-        {content && <p class="d-none d-sm-block mt-4 ta-center">{content}</p>}
+        {content && <p className="d-none d-sm-block mt-4 ta-center">{content}</p>}
       </div>
     </div>
   )

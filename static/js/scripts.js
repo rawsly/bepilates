@@ -80,7 +80,9 @@ $( document ).ready(function() {
     });
 
     // :: 6.0 AOS ACTIVE CODE
-    AOS.init();
+    if (typeof AOS === 'function') {
+        AOS.init();
+    }
 
     // :: 7.0 TOOLTIP ACTIVE CODE
     $('[data-toggle="tooltip"]').tooltip({
