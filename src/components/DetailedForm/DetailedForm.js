@@ -120,8 +120,9 @@ const DetailedForm = () => {
                             name="classType"
                             required
                             onChange={handleChange}
+                            value={formData.classType}
                           >
-                            <option value="" disabled selected hidden>
+                            <option value="" disabled hidden>
                               Ders Türü Seçin
                             </option>
                             {_.map(DETAILED_FORM_CLASS_TYPES, classType => (
@@ -149,6 +150,7 @@ const DetailedForm = () => {
                           )
                           return (
                             <div
+                              key={_.uniqueId('formReason_')}
                               className="col-12 col-md-6 form-checkbox-item"
                               onClick={() => handleReasonSelect(reason)}
                             >

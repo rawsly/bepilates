@@ -61,7 +61,7 @@ const About = () => {
   )
 
   return _.map(data, sectionItem => (
-    <section className="section about-app-area ptb_100">
+    <section className="section about-app-area ptb_100" key={_.uniqueId('about_')}>
       <div className="shapes-container">
         <div className={`shape-1 shape-${sectionItem.imagePosition}`} />
       </div>

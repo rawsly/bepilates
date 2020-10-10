@@ -93,7 +93,7 @@ const Questions = () => {
           <ul className="work-slider owl-carousel">
             {_.map(data, item => {
               return (
-                <li key={item.key} className="slide-item">
+                <li key={_.uniqueId('carousel_')} className="slide-item">
                   <Img fixed={item.image} style={{ width: '242px', height: '440px' }} />
                 </li>
               )
@@ -108,7 +108,7 @@ const Questions = () => {
         >
           {_.map(data, item => {
             return (
-              <div key={`${item.key}_`} className="col-12 col-sm-6">
+              <div key={_.uniqueId('questions_')} className="col-12 col-sm-6">
                 <a href="#" className="paper-item">
                   {/* Single Work */}
                   <div className="single-work d-inline-block text-center p-4">

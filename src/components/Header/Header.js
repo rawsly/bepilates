@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import _ from "lodash"
 
 import { HEADER_MENU } from "../../constants"
-import Container from '../Container/Container';
+import Container from "../Container/Container"
 
 const Header = () => {
   const data = useStaticQuery(graphql`
@@ -60,6 +60,7 @@ const Header = () => {
                   const hasSubItems = !_.isEmpty(menuItem.subItems)
                   return (
                     <li
+                      key={menuItem.key}
                       className={`nav-item ${
                         hasSubItems ? "active dropdown" : ""
                       }`}
@@ -102,13 +103,14 @@ const Header = () => {
 
                             {_.map(menuItem.subItems, subItemList => (
                               <div
+                                key={_.uniqueId("subItem_")}
                                 className={`col-12 col-md-${
                                   12 / (menuItem.subItems.length + 1)
                                 }`}
                               >
                                 <ul className="single-menu">
                                   {_.map(subItemList, subItem => (
-                                    <li>
+                                    <li key={_.uniqueId("subItemList_")}>
                                       <a
                                         className="dropdown-item"
                                         href={subItem.link}
@@ -126,11 +128,11 @@ const Header = () => {
                     </li>
                   )
                 })}
-                    <li
-                        className="nav-item"
-                    >
-                        <a href="#" className="btn btn-bordered-white btn-sm mg-l-10"><span>Dersleri İncele</span></a>
-                    </li>
+                <li className="nav-item">
+                  <a href="#" className="btn btn-bordered-white btn-sm mg-l-10">
+                    <span>Dersleri İncele</span>
+                  </a>
+                </li>
               </ul>
             </div>
           </nav>

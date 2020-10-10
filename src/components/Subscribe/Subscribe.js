@@ -29,7 +29,6 @@ const Subscribe = () => {
       <div className="container">
         <div className="col-12">
           <BackgroundImage
-            data-aos="fade-up"
             className="start-free-content d-flex flex-wrap align-items-center justify-content-center justify-content-lg-between shadow-lg"
             fluid={bgImg}
           >

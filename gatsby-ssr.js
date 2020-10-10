@@ -5,16 +5,16 @@ export const onRenderBody = (
 ) => {
   setHeadComponents([])
   setPostBodyComponents([
-    <script key="corejs" src="/js/core.min.js" type="text/javascript" async/>,
-    <script key="popper" src="/js/popper.min.js" type="text/javascript" async />,
+    <script key="corejs" src="/js/core.min.js" type="text/javascript" defer />,
+    <script key="popper" src="/js/popper.min.js" type="text/javascript" defer />,
     <script
       key="bootstrap"
       src="/js/bootstrap.min.js"
       type="text/javascript"
-      async
+      defer
     />,
-    <script key="plugins" src="/js/plugins.min.js" type="text/javascript" async/>,
-    <script key="typed" src="/js/typed.js" type="text/javascript" async/>,
-    <script key="scripts" src="/js/scripts.js" type="text/javascript" async/>,
+    <script key="plugins" src="/js/plugins.min.js" type="text/javascript" defer />,
+    <script key="typed" src="/js/typed.js" type="text/javascript" defer />,
+    <script key="scripts" src="/js/scripts.js" type="text/javascript" defer />,
   ])
 }
