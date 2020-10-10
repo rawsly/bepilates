@@ -8,9 +8,10 @@ import Questions from "../components/Questions/Questions"
 import Subscribe from "../components/Subscribe/Subscribe"
 import Download from "../components/Download/Download"
 import DetailedForm from "../components/DetailedForm/DetailedForm"
-import FooterSection from "../components/footerSection/footer"
+import Footer from "../components/Footer/Footer"
 import Features from "../components/Features/Features";
 import Carousel from "../components/Carousel/Carousel";
+import Map from "../components/Map/Map";
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -33,7 +34,8 @@ const IndexPage = () => {
           <Questions />
           {/*TODO: Map Section*/}
           {/* <BlogSection /> */}
-          <FooterSection />
+          <Map />
+          <Footer />
         </div>
       </div>
     </Layout>
