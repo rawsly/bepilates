@@ -40,6 +40,34 @@ module.exports = {
           },
         ],
       },
-    }
+    },
+    {
+      resolve: `gatsby-source-twitter`,
+      options: {
+        credentials: {
+          consumer_key: "INSERT_HERE_YOUR_CONSUMER_KEY",
+          consumer_secret: "INSERT_HERE_YOUR_CONSUMER_SECRET",
+          bearer_token: "INSERT_HERE_YOUR_BEARER_TOKEN",
+        },
+        queries: {
+          nameofthequery: {
+            endpoint: "statuses/user_timeline",
+            params: {
+              screen_name: "gatsbyjs",
+              include_rts: false,
+              exclude_replies: true,
+              tweet_mode: "extended",
+            },
+          },
+          nameofanotherthequery: {
+            endpoint: "search/tweets",
+            params: {
+              q: "#gatsbyjs",
+              tweet_mode: "extended",
+            },
+          },
+        },
+      },
+    },
   ],
 }

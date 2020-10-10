@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-
-import { HEADING_MESSAGES } from '../../constants';
 
 const Welcome = () => {
   const [initData, setInitData] = useState({
@@ -12,17 +10,6 @@ const Welcome = () => {
     btnText: "Dersleri İncele",
     link: '#'
   });
-  const [headingMessageIndex, setHeadingMessageIndex] = useState(0);
-
-  useEffect(() => {
-    const headingChangeInterval = setInterval(() => {
-      setHeadingMessageIndex(prevHeadingMessageIndex => (prevHeadingMessageIndex + 1) % HEADING_MESSAGES.length);
-    }, 3000);
-
-    return () => {
-      clearInterval(headingChangeInterval);
-    }
-  }, []);
 
   const data = useStaticQuery(graphql`
     query {
@@ -44,12 +31,16 @@ const Welcome = () => {
       <div className="container">
         <div className="row justify-content-center">
           {/* Welcome Intro Start */}
-          <div className="col-12 col-md-10 col-lg-8">
+          <div className="col-12 col-md-12 col-lg-12">
             <div className="welcome-intro text-center">
-              <h1 className="text-white">
-                <span>{HEADING_MESSAGES[headingMessageIndex]}</span>
-                {initData.headingDetail}
-              </h1>
+              <h2 className="cd-headline clip fw-3 mt-2 mt-sm-3 changing-text">
+                <span className="text-white mr-2">bir pilates ve yoga studyosu.</span>
+                <span className="cd-words-wrapper">
+                    <b className="text-white is-visible">Gelişimin için</b>
+                    <b className="text-white">Performansın için</b>
+                    <b className="text-white">Sana özel</b>
+                </span>
+              </h2>
               <p className="text-white my-4">{initData.content}</p>
               <a href="#" className="btn btn-bordered-white">
                 <span>{initData.btnText}</span>

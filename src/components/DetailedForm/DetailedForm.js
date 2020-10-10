@@ -48,8 +48,6 @@ const DetailedForm = () => {
     }
   }
 
-  console.log(formData)
-
   return (
     <section id="contact" className="contact-area bg-gray ptb_100">
       <div className="container">

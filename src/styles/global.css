@@ -165,3 +165,42 @@
 .ta-center {
   text-align: center;
 }
+
+.footer-items .navbar-brand {
+  width: 128px;
+  height: 128px;
+}
+
+.navbar-brand .logo {
+  max-height: 128px;
+}
+
+.social-media-icons .facebook, .social-media-icons .twitter, .social-media-icons .instagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: #52c2cd;
+  color: #fff;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+.social-media-icons a:hover {
+  border-bottom: 4px solid #2af598;
+}
+
+.footer-area .footer-items a:hover {
+  color: #fff !important;
+  cursor: pointer;
+}
+
+.changing-text {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+}

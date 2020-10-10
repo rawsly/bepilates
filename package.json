@@ -14,6 +14,7 @@
     "gatsby-plugin-react-helmet": "^3.3.12",
     "gatsby-plugin-sharp": "^2.6.37",
     "gatsby-source-filesystem": "^2.3.31",
+    "gatsby-source-twitter": "^3.2.2",
     "gatsby-transformer-sharp": "^2.5.16",
     "lodash": "^4.17.20",
     "prop-types": "^15.7.2",
