@@ -1,5 +1,4 @@
 import React from "react"
-import { CustomPreloader } from 'react-preloaders';
 
 import ScrollupSection from "../components/scrollupSection/scrollUp"
 import Header from "../components/Header/Header";
@@ -13,7 +12,6 @@ import Footer from "../components/Footer/Footer"
 import Features from "../components/Features/Features";
 import Carousel from "../components/Carousel/Carousel";
 import Map from "../components/Map/Map";
-import Logo from "../components/Logo/Logo";
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -39,9 +37,6 @@ const IndexPage = () => {
           <Map />
           <Footer />
         </div>
-        <CustomPreloader>
-          <Logo />
-        </CustomPreloader>
       </div>
       
     </Layout>
