@@ -32,13 +32,11 @@ const IndexPage = () => {
           <DetailedForm />
           <Carousel />
           <Questions />
-          {/*TODO: Map Section*/}
           {/* <BlogSection /> */}
           <Map />
           <Footer />
         </div>
       </div>
-      
     </Layout>
   )
 }
