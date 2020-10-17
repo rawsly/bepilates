@@ -296,3 +296,5 @@ export const DETAILED_FORM_REASONS = [
     value: 'Stresten Arınmak',
   },
 ];
+
+export const POSTS_PER_PAGE = 6;

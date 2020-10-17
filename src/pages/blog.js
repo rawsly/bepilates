@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react"
 import _ from 'lodash';
+import { useStaticQuery, graphql } from "gatsby"
+import Img from "gatsby-image"
 
 import ScrollupSection from "../components/scrollupSection/scrollUp"
 import Header from "../components/Header/Header"
@@ -8,71 +10,62 @@ import Footer from "../components/Footer/Footer"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-
+import { POSTS_PER_PAGE } from "../constants";
 
 const BlogPage = () => {
-  const BASE_URL = "https://bepilatesyoga.com/wp-json/wp/v2/posts"
-  const [posts, setPosts] = useState()
+  // const BASE_URL = "https://bepilatesyoga.com/wp-json/wp/v2/posts"
+  const [posts, setPosts] = useState([])
+  const [page, setPage] = useState(1);
+  const BASE_URL = `/posts.json?page=${page}&per_page=${POSTS_PER_PAGE}&order=desc`;
+
+  const images = useStaticQuery(graphql`
+    query {
+      defaultImage: file(relativePath: { eq: "blog-default-image.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1000) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      topImage: file(relativePath: { eq: "blog-top.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1920) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
 
   const fetchBlogPosts = () => {
+    // 1. status === publish, type === post
+    // 2. post içeriği content.rendered
+    // 3. excerpt içeriği excerpt.rendered
+    // auther: be. Pilates & Yoga
+    // categories: [<category_id>]
+    // tags: [<tag_id>]
+    // related posts: jetpack-related-posts -> [...]
+    // _links -> author bilgisi çekilebilir.
+    //        -> category ve tag bilgisi çekilebilir. -> wp:term
+    // At this step, we only need author information
     fetch(BASE_URL)
       .then(res => res.json())
       .then(data => {
+        // i have 6 posts now.
         console.log(data)
         setPosts(data)
       })
   }
 
   useEffect(() => {
-    fetchBlogPosts()
-  }, [])
+    fetchBlogPosts();
+  }, []);
 
-  const blogData = [
-    {
-      id: "post_1",
-      image: "https://appo-react.theme-land.com/img/blog_1.jpg",
-      imageAlt: "test",
-      author: "be. Pilates & Yoga",
-      date: '12 Ara 2020',
-      title: "Blog Title Here",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione obcaecati, animi vitae recusandae, praesentium quae.",
-      btnText: "Devamını Oku",
-    },
-    {
-      id: "post_2",
-      image: "https://appo-react.theme-land.com/img/blog_1.jpg",
-      imageAlt: "test",
-      author: "be. Pilates & Yoga",
-      date: '12 Ara 2020',
-      title: "Blog Title Here",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione obcaecati, animi vitae recusandae, praesentium quae.",
-      btnText: "Devamını Oku",
-    },
-    {
-      id: "post_3",
-      image: "https://appo-react.theme-land.com/img/blog_1.jpg",
-      imageAlt: "test",
-      author: "be. Pilates & Yoga",
-      date: '12 Ara 2020',
-      title: "Blog Title Here",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione obcaecati, animi vitae recusandae, praesentium quae.",
-      btnText: "Devamını Oku",
-    },
-    {
-      id: "post_4",
-      image: "https://appo-react.theme-land.com/img/blog_1.jpg",
-      imageAlt: "test",
-      author: "be. Pilates & Yoga",
-      date: '12 Ara 2020',
-      title: "Blog Title Here",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione obcaecati, animi vitae recusandae, praesentium quae.",
-      btnText: "Devamını Oku",
-    },
-  ]
+  const FeaturedImage = () => {
+    return (
+      <Img fluid={images.topImage.childImageSharp.fluid} />
+    )
+  }
 
   return (
     <Layout>
@@ -81,23 +74,22 @@ const BlogPage = () => {
         <ScrollupSection />
         <div className="all-area">
           <Header />
-          <BreadcrumbSection
-            heading={"Blog"}
-            home={"Anasayfa"}
-            page={"Blog"}
-            title={"Blog"}
-          />
+          <FeaturedImage />
           <section id="blog" className="section blog-area ptb_100">
             <div className="container">
               <div className="row">
-                {_.map(blogData, (item, index) => (
-                  <div key={item.id} className="col-12 col-md-6">
+                {_.map(posts, (post, index) => (
+                  <div key={post.id} className="col-12 col-md-6">
                     {/* Single Blog */}
                     <div className="single-blog res-margin">
                       {/* Blog Thumb */}
                       <div className="blog-thumb">
                         <a href="#">
-                          <img src={item.image} alt={item.imageAlt} />
+                          {post.jetpack_featured_media_url ? (
+                            <img src={post.jetpack_featured_media_url} />
+                          ) : (
+                            <Img fluid={images.defaultImage.childImageSharp.fluid} />
+                          )}
                         </a>
                       </div>
                       {/* Blog Content */}
@@ -105,19 +97,19 @@ const BlogPage = () => {
                         {/* Meta Info */}
                         <ul className="meta-info d-flex justify-content-between">
                           <li>
-                            By <a href="#">{item.author}</a>
+                            By <a href="#">be. Pilates &amp; Yoga</a>
                           </li>
                           <li>
-                            <a href="#">{item.date}</a>
+                            <a href="#">{post.date}</a>
                           </li>
                         </ul>
                         {/* Blog Title */}
                         <h3 className="blog-title my-3">
-                          <a href="#">{item.title}</a>
+                          <a href="#">{post.title.rendered}</a>
                         </h3>
-                        <p>{item.content}</p>
+                        <p dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} />
                         <a href="#" className="blog-btn mt-3">
-                          {item.btnText}
+                          Devamını Oku
                         </a>
                       </div>
                     </div>

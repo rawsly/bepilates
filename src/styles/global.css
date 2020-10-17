@@ -204,3 +204,7 @@
   align-items: center;
   justify-content: center;
 }
+
+.blog-top-section {
+  height: 250px;
+}
