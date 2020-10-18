@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 
 import ScrollupSection from "../components/scrollupSection/scrollUp"
 import Header from "../components/Header/Header"
-import BreadcrumbSection from "../components/breadcrumbSection/breadcrumbTwo"
+import BlogTopImage from "../components/BlogTopImage/BlogTopImage"
 import Footer from "../components/Footer/Footer"
 
 import Layout from "../components/layout"
@@ -61,12 +61,6 @@ const BlogPage = () => {
     fetchBlogPosts();
   }, []);
 
-  const FeaturedImage = () => {
-    return (
-      <Img fluid={images.topImage.childImageSharp.fluid} />
-    )
-  }
-
   return (
     <Layout>
       <SEO title="Blog" />
@@ -74,7 +68,7 @@ const BlogPage = () => {
         <ScrollupSection />
         <div className="all-area">
           <Header />
-          <FeaturedImage />
+          <BlogTopImage fluid={images?.topImage?.childImageSharp?.fluid}/>
           <section id="blog" className="section blog-area ptb_100">
             <div className="container">
               <div className="row">

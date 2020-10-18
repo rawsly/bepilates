@@ -1,3 +1,9 @@
+:root {
+  --primary-color: #00cff2;
+  --text-color: #777;
+  --black: #444;
+}
+
 .navbar-brand {
   height: 60px;
   width: 60px;
@@ -207,4 +213,92 @@
 
 .blog-top-section {
   height: 250px;
+}
+
+.blog-top-image-container {
+  max-height: 500px;
+  overflow: hidden;
+}
+
+.nav-dark {
+  background: rgba(0, 0, 0, 0) linear-gradient(44deg, #2af598 0%, #009efd 100%) repeat scroll 0 0;
+}
+
+.social-icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.social-icons svg {
+  width: 30px;
+  color: var(--black);
+}
+
+.meta-info ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-container p {
+  font-size: 16px;
+  line-height: 2;
+}
+
+.blog-title {
+  text-align: center;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.blog-title a::after {
+  width: 100px;
+  height: 2px;
+  background-color: #009efd;
+} 
+
+.blog-title a {
+  font-size: 32px !important;
+}
+
+/* Table CSS */
+table {
+  display: table;
+  border-spacing: 2px;
+  border-color: grey;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  display: table-header-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+  padding: 8px;
+}
+
+th {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 18px;
+  color: #fff;
+  background-color: var(--primary-color);
+}
+
+th, td {
+  font-weight: unset;
+  padding: 8px;
+  text-align: left;
+  line-height: 2;
+  vertical-align: middle;
 }

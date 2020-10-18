@@ -248,7 +248,12 @@
     .nav-white .header-items .nav-link,
     .nav-white .header-items .nav-item:hover .nav-link,
     .nav-white .header-items .nav-item:focus .nav-link,
-    .nav-white .header-items .nav-item.active .nav-link {
+    .nav-white .header-items .nav-item.active .nav-link,
+    .nav-dark .header-items .nav-link,
+    .nav-dark .header-items .nav-item:hover .nav-link,
+    .nav-dark .header-items .nav-item:focus .nav-link,
+    .nav-dark .header-items .nav-item.active .nav-link
+    {
         color: #fff;
     }
 }

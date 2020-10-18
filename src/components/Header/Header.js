@@ -2,11 +2,12 @@ import React from "react"
 import Img from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
 import _ from "lodash"
+import PropTypes from 'prop-types';
 
 import { HEADER_MENU } from "../../constants"
 import Container from "../Container/Container"
 
-const Header = () => {
+const Header = ({ dark }) => {
   const data = useStaticQuery(graphql`
     query {
       file(relativePath: { eq: "logo_white.png" }) {
@@ -44,9 +45,11 @@ const Header = () => {
     </button>
   )
 
+  console.log(dark);
+
   return (
     <header className="section header-area">
-      <div id="appo-header" className="main-header-area nav-white">
+      <div id="appo-header" className={`main-header-area nav-${dark ? 'dark' : 'white'}`}>
         <Container>
           <nav className="navbar navbar-expand-md navbar-light">
             {/* Logo */}
@@ -140,6 +143,14 @@ const Header = () => {
       </div>
     </header>
   )
+}
+
+Header.propTypes = {
+  dark: PropTypes.bool,
+}
+
+Header.defaultProps = {
+  dark: false,
 }
 
 export default Header

@@ -9,3 +9,4 @@ import './src/assets/css/fancybox.min.css';
 import './src/assets/css/style.css';
 import './src/assets/css/responsive.css';
 import "./src/styles/global.css";
+import "prismjs/themes/prism.css"

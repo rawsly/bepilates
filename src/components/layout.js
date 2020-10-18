@@ -1,34 +1,42 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+
+import Footer from "../components/Footer/Footer"
+import Header from "../components/Header/Header"
+import ScrollupSection from "../components/scrollupSection/scrollUp"
+import SEO from '../components/seo';
 
 import "./layout.css"
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
+const Layout = ({ title, children, blogSeo, dark }) => {
   return (
-    <main>{children}</main>
+    <main>
+      <SEO title={blogSeo.title} description={blogSeo.description} />
+      <div className="seoul">
+        <ScrollupSection />
+        <div className="all-area">
+          <Header dark={dark} />
+          {children}
+          <Footer />
+        </div>
+      </div>
+    </main>
   )
 }
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  title: PropTypes.string.isRequired,
+  blogSeo: PropTypes.shape({
+    title: PropTypes.string,
+    description: PropTypes.string
+  }),
+  dark: PropTypes.bool,
+}
+
+Layout.defaultProps = {
+  blogSeo: {},
+  dark: false,
 }
 
 export default Layout
