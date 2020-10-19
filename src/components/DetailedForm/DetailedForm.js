@@ -1,14 +1,15 @@
 import React, { useState } from "react"
 import _ from "lodash"
+import PropTypes from "prop-types"
 
-import Title from '../../components/Title/Title';
+import Title from "../../components/Title/Title"
 
 import {
   DETAILED_FORM_CLASS_TYPES,
   DETAILED_FORM_REASONS,
 } from "../../constants"
 
-const DetailedForm = () => {
+const DetailedForm = ({ fromUrl }) => {
   const [pageData, setPageData] = useState({
     title: "Bahçeşehir Aletli Pilates'te 5 Yıllık Tecrübe",
     content: `Bahçeşehir pilates studyoları arasında hizmet kalitesi ve başarı grafiğiyle öne çıkan pilates studyomuzda, pilates ve yoga özel ve grup dersleri sunuyoruz. Bahçeşehir Bahçecity’s residence da bulunan Pilates studyomuzda Reformer pilates ve yoga özel derslerine özel ders paketleri ile, grup derslerine grup ders paketleriyle katılabilirsiniz.
@@ -28,6 +29,7 @@ const DetailedForm = () => {
     classType: "",
     reasons: [],
     healthProblems: "",
+    from: fromUrl,
   })
 
   const handleChange = event => {
@@ -150,7 +152,7 @@ const DetailedForm = () => {
                           )
                           return (
                             <div
-                              key={_.uniqueId('formReason_')}
+                              key={_.uniqueId("formReason_")}
                               className="col-12 col-md-6 form-checkbox-item"
                               onClick={() => handleReasonSelect(reason)}
                             >
@@ -178,18 +180,20 @@ const DetailedForm = () => {
                       </div>
                     </div>
                     <div className="col-12">
-                      <button className="btn btn-bordered form-submit-button" type="submit">
+                      <button
+                        className="btn btn-bordered form-submit-button"
+                        type="submit"
+                      >
                         Ücretsiz Dene
                       </button>
                     </div>
                   </div>
 
                   <div className="col-12 col-md-6">
-                    <div className="form-content">
-                      {pageData.content}
-                    </div>
+                    <div className="form-content">{pageData.content}</div>
                   </div>
                 </div>
+                <input hidden value={fromUrl} name="from" />
               </form>
               <p className="form-message" />
             </div>
@@ -198,6 +202,10 @@ const DetailedForm = () => {
       </div>
     </section>
   )
+}
+
+DetailedForm.propTypes = {
+  fromUrl: PropTypes.string.isRequired,
 }
 
 export default DetailedForm

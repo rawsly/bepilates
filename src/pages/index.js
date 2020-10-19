@@ -20,7 +20,7 @@ const IndexPage = () => {
       <Features />
       <Download />
       <About />
-      <DetailedForm />
+      <DetailedForm fromUrl="/" />
       <Carousel />
       <Questions />
       {/* <BlogSection /> */}

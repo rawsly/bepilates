@@ -1,6 +1,6 @@
 import React from "react"
 import Img from "gatsby-image"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import _ from "lodash"
 import PropTypes from 'prop-types';
 
@@ -21,7 +21,7 @@ const Header = ({ dark }) => {
   `)
 
   const Logo = () => (
-    <a className="navbar-brand" href="/">
+    <Link className="navbar-brand" to="/">
       {data?.file?.childImageSharp?.fluid ? (
         <Img
           className="logo"
@@ -31,7 +31,7 @@ const Header = ({ dark }) => {
       ) : (
         <p>Be. Pilates &amp; Yoga</p>
       )}
-    </a>
+    </Link>
   )
 
   const HamburgerMenu = () => (
@@ -68,17 +68,16 @@ const Header = ({ dark }) => {
                         hasSubItems ? "active dropdown" : ""
                       }`}
                     >
-                      <a
+                      <Link
                         id={hasSubItems ? "navbarDropdown" : ""}
-                        role={hasSubItems ? "button" : ""}
                         data-toggle={hasSubItems ? "dropdown" : ""}
                         className={`nav-link ${
                           hasSubItems ? "dropdown-toggle" : "scroll"
                         }`}
-                        href={hasSubItems ? "#" : menuItem.link}
+                        to={hasSubItems ? "#" : menuItem.link}
                       >
                         {menuItem.text}
-                      </a>
+                      </Link>
                       {hasSubItems && (
                         <div className="dropdown-menu mega-menu px-3 px-md-4 py-md-4">
                           <div className="shapes-container d-none d-lg-block">
@@ -94,12 +93,12 @@ const Header = ({ dark }) => {
                                   {menuItem.content.subHeader}
                                 </p>
                                 <div className="dropdown-btn mt-3">
-                                  <a
-                                    href={menuItem.content.action.link}
+                                  <Link
+                                    to={menuItem.content.action.link}
                                     className="btn btn-bordered"
                                   >
                                     {menuItem.content.action.text}
-                                  </a>
+                                  </Link>
                                 </div>
                               </div>
                             )}
@@ -114,12 +113,12 @@ const Header = ({ dark }) => {
                                 <ul className="single-menu">
                                   {_.map(subItemList, subItem => (
                                     <li key={_.uniqueId("subItemList_")}>
-                                      <a
+                                      <Link
                                         className="dropdown-item"
-                                        href={subItem.link}
+                                        to={subItem.link}
                                       >
                                         {subItem.text}
-                                      </a>
+                                      </Link>
                                     </li>
                                   ))}
                                 </ul>
@@ -132,9 +131,9 @@ const Header = ({ dark }) => {
                   )
                 })}
                 <li className="nav-item">
-                  <a href="#" className="btn btn-bordered-white btn-sm mg-l-10">
+                  <Link to="#" className="btn btn-bordered-white btn-sm mg-l-10">
                     <span>Dersleri İncele</span>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

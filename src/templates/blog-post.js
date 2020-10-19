@@ -1,8 +1,9 @@
 import React from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import BlogTopImage from "../components/BlogTopImage/BlogTopImage"
+import DetailedForm from "../components/DetailedForm/DetailedForm"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
@@ -98,6 +99,8 @@ const BlogPostTemplate = ({ data, location }) => {
           </div>
         </section>
       </div>
+
+      <DetailedForm fromUrl={post.fields.slug} />
     </Layout>
   )
 }
@@ -134,6 +137,9 @@ export const pageQuery = graphql`
           name
           summary
         }
+      }
+      fields {
+        slug
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {
