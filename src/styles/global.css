@@ -2,6 +2,7 @@
   --primary-color: #00cff2;
   --text-color: #777;
   --black: #444;
+  --white: #fff;
 }
 
 .navbar-brand {
@@ -218,6 +219,7 @@
 .blog-top-image-container {
   max-height: 500px;
   overflow: hidden;
+  position: relative;
 }
 
 .nav-dark {
@@ -301,4 +303,16 @@ th, td {
   text-align: left;
   line-height: 2;
   vertical-align: middle;
+}
+
+.blog-top-title {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  color: var(--white);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }

@@ -72,7 +72,7 @@ const Header = ({ dark }) => {
                         id={hasSubItems ? "navbarDropdown" : ""}
                         data-toggle={hasSubItems ? "dropdown" : ""}
                         className={`nav-link ${
-                          hasSubItems ? "dropdown-toggle" : "scroll"
+                          hasSubItems ? "dropdown-toggle" : ""
                         }`}
                         to={hasSubItems ? "#" : menuItem.link}
                       >

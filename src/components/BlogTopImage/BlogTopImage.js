@@ -5,6 +5,7 @@ import Img from 'gatsby-image';
 const BlogTopImage = ({ fluid, imageUrl }, ...rest) => {
   return (
     <div className="blog-top-image-container" {...rest}>
+      <h1 className="blog-top-title">Blog</h1>
       {imageUrl ? (
         <img src={imageUrl} />
       ) : (
