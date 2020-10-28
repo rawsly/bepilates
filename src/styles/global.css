@@ -247,7 +247,7 @@
 }
 
 .content-container p {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 2;
 }
 
@@ -255,6 +255,7 @@
   text-align: center;
   margin-top: 16px;
   margin-bottom: 16px;
+  line-height: 1.5;
 }
 
 .blog-title a::after {
@@ -263,8 +264,8 @@
   background-color: #009efd;
 } 
 
-.blog-title a {
-  font-size: 32px !important;
+.blog-details > .blog-title a {
+  font-size: 48px !important;
 }
 
 /* Table CSS */
@@ -314,5 +315,41 @@ th, td {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 450px;
+}
+
+h1, h2, h3 {
+  line-height: 2;
+}
+
+.content-container ul {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.content-container ul li {
+  list-style-type: disc;
+  margin-left: 20px;
+  font-size: 15px;
+  line-height: 2;
+}
+
+.gatsby-resp-image-figcaption {
+  text-align: center;
+}
+
+.content-container h1 {
+  font-size: 48px;
+  line-height: 1.5;
+}
+
+.admin-thumb > .rounded-circle {
+  border: 1px solid #0ebbdc;
+  padding: 5px;
+}
+
+.admin {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }

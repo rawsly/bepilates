@@ -69,6 +69,9 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 630,
+              showCaptions: true,
+              quality: 90,
+              wrapperStyle: "margin: 16px; display: inline-block; min-width: 300px; max-width: 500px;"
             },
           },
           {
@@ -82,6 +85,6 @@ module.exports = {
           `gatsby-remark-smartypants`,
         ],
       }
-    }
+    },
   ],
 }

@@ -1,9 +1,11 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
+import _ from 'lodash';
 
 import Layout from "../components/layout"
 import BlogTopImage from "../components/BlogTopImage/BlogTopImage"
 import DetailedForm from "../components/DetailedForm/DetailedForm"
+import Image from '../components/image';
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
@@ -14,7 +16,7 @@ const BlogPostTemplate = ({ data, location }) => {
     description: post.frontmatter.description || post.excerpt,
   }
 
-  console.log(data)
+  console.log(post)
 
   return (
     <Layout location={location} title={siteTitle} blogSeo={seo} dark>
@@ -29,21 +31,25 @@ const BlogPostTemplate = ({ data, location }) => {
                   itemType="http://schema.org/Article"
                 >
                   <div className="blog-thumb">
-                    <a href="#">
-                      <BlogTopImage
-                        fluid={data.featuredImage?.childImageSharp?.fluid}
-                      />
-                    </a>
+                    <Link to={post?.fields?.slug}>
+                      {_.startsWith(post?.frontmatter?.featuredImage, 'http') ? (
+                        <BlogTopImage imageUrl={post?.frontmatter?.featuredImage} />
+                      ) : (
+                        <BlogTopImage
+                          fluid={data?.featuredImage?.childImageSharp?.fluid || data?.topImage?.childImageSharp?.fluid}
+                        />
+                      )}
+                    </Link>
                   </div>
 
                   <div className="blog-content appo-blog">
                     <div className="meta-info d-flex flex-wrap align-items-tencer py-2">
                       <ul>
                         <li className="d-inline-block p-2">
-                          <a href="#">{data?.site?.siteMetadata?.author?.name}</a>
+                          {post?.frontmatter?.author?.name}
                         </li>
                         <li className="d-inline-block p-2">
-                          <a href="#">{post.frontmatter.date}</a>
+                          {post?.frontmatter?.date}
                         </li>
                       </ul>
                       <div className="blog-share ml-auto d-none d-sm-block">
@@ -66,10 +72,10 @@ const BlogPostTemplate = ({ data, location }) => {
 
                     <div className="blog-details">
                       <h3 className="blog-title py-2 py-sm-3">
-                        <a href="#">{post.frontmatter.title}</a>
+                        {post?.frontmatter?.title}
                       </h3>
                       <section
-                        dangerouslySetInnerHTML={{ __html: post.html }}
+                        dangerouslySetInnerHTML={{ __html: post?.html }}
                         itemProp="articleBody"
                         className="content-container"
                       />
@@ -78,18 +84,13 @@ const BlogPostTemplate = ({ data, location }) => {
                   <div className="blog-comments">
                     <div className="admin media py-3">
                       <div className="admin-thumb avatar-lg">
-                        <img
-                          src={data?.site?.siteMetadata?.author?.profilePhoto}
-                          alt=""
-                          className="rounded-circle"
-                        />
+                      <Image filename={post?.frontmatter?.author?.image} className="rounded-circle" />
                       </div>
 
                       <div className="admin-content media-body pl-3 pl-sm-4">
                         <h4 className="admin-name mb-2">
-                          <a href="#">{data?.site?.siteMetadata?.author?.name}</a>
+                          {post?.frontmatter?.author?.name}
                         </h4>
-                        <p>{data?.site?.siteMetadata?.author?.summary}</p>
                       </div>
                     </div>
                   </div>
@@ -100,7 +101,7 @@ const BlogPostTemplate = ({ data, location }) => {
         </section>
       </div>
 
-      <DetailedForm fromUrl={post.fields.slug} />
+      <DetailedForm fromUrl={post?.fields?.slug} />
     </Layout>
   )
 }
@@ -136,6 +137,7 @@ export const pageQuery = graphql`
         author {
           name
           summary
+          image
         }
       }
       fields {
