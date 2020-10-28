@@ -11,7 +11,7 @@ import "./layout.css"
 const Layout = ({ title, children, blogSeo, dark }) => {
   return (
     <main>
-      <SEO title={blogSeo.title} description={blogSeo.description} />
+      <SEO title={blogSeo.title || title} description={blogSeo.description} />
       <div className="seoul">
         <ScrollupSection />
         <div className="all-area">
