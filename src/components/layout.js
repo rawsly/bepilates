@@ -1,3 +1,4 @@
+
 import React from "react"
 import PropTypes from "prop-types"
 
@@ -9,6 +10,10 @@ import SEO from '../components/seo';
 import "./layout.css"
 
 const Layout = ({ title, children, blogSeo, dark }) => {
+  if (typeof window !== "undefined") {
+    // eslint-disable-next-line global-require
+    require("smooth-scroll")('a[href*="#"]')
+  }
   return (
     <main>
       <SEO title={blogSeo.title || title} description={blogSeo.description} />

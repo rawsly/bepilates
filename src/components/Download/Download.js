@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { Link } from 'gatsby'
 import _ from "lodash"
 
 const Download = () => {
@@ -47,9 +48,9 @@ const Download = () => {
               <div className="button-group store-buttons">
                 {_.map(data.buttons, button => {
                   return (
-                    <a
+                    <Link
                       key={button.key}
-                      href={button.link}
+                      to={button.link}
                       className="btn btn-bordered"
                     >
                       <i className={`icofont ${button.iconClass} dsp-tc`} />
@@ -58,7 +59,7 @@ const Download = () => {
                         <br />
                         {button.text}
                       </p>
-                    </a>
+                    </Link>
                   )
                 })}
               </div>

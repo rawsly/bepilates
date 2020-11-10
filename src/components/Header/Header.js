@@ -45,8 +45,6 @@ const Header = ({ dark }) => {
     </button>
   )
 
-  console.log(dark);
-
   return (
     <header className="section header-area">
       <div id="appo-header" className={`main-header-area nav-${dark ? 'dark' : 'white'}`}>
@@ -131,8 +129,8 @@ const Header = ({ dark }) => {
                   )
                 })}
                 <li className="nav-item">
-                  <Link to="#" className="btn btn-bordered-white btn-sm mg-l-10">
-                    <span>Dersleri İncele</span>
+                  <Link to="/#agile-form" className="btn btn-bordered-white btn-sm mg-l-10">
+                    <span>Ücretsiz Dene</span>
                   </Link>
                 </li>
               </ul>

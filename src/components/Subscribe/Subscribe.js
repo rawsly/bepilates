@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import BackgroundImage from "gatsby-background-image"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 
 const Subscribe = () => {
   const [initData, setInitData] = useState({
@@ -37,9 +37,9 @@ const Subscribe = () => {
                 <h2 className="mb-2">{initData.heading}</h2>
               </div>
               <div className="start-free-btn mt-4 mt-lg-0">
-                <a href="#" className="btn btn-bordered">
+                <Link to="/#kesfet" className="btn btn-bordered">
                   <span>{initData.btnText}</span>
-                </a>
+                </Link>
               </div>
             </div>
           </BackgroundImage>

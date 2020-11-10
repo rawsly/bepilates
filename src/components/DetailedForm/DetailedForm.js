@@ -118,7 +118,7 @@ const DetailedForm = ({ fromUrl }) => {
   }
 
   return (
-    <section id="contact" className="contact-area bg-gray ptb_100">
+    <section className="contact-area bg-gray ptb_100">
       <div className="container">
         <Title title={pageData.title} />
         <div className="row">

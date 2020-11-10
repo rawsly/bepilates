@@ -170,9 +170,8 @@ const BlogPage = ({ data }) => {
                   </div>
                 ))}
               </div>
-              <div className="row">
+              {/* <div className="row">
                 <div className="col-12">
-                  {/* Pagination */}
                   <ul className="pagination justify-content-center">
                     <li className="disabled px-1">
                       <a href="#" aria-label="Previous">
@@ -195,10 +194,9 @@ const BlogPage = ({ data }) => {
                     </li>
                   </ul>
                 </div>
-              </div>
+              </div> */}
             </div>
           </section>
-          <Footer />
         </div>
       </div>
     </Layout>

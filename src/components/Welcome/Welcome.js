@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 
 const Welcome = () => {
@@ -8,7 +8,7 @@ const Welcome = () => {
       "Bahçeşehir'de pilates ve yoga studyomuzda herkes için bir ders planımız mevcut.",
     headingDetail: "için bir pilates ve yoga studyosu",
     btnText: "Dersleri İncele",
-    link: '#'
+    link: '/#agile-form'
   });
 
   const data = useStaticQuery(graphql`
@@ -42,9 +42,9 @@ const Welcome = () => {
                 </span>
               </h2>
               <p className="text-white my-4">{initData.content}</p>
-              <a href="#" className="btn btn-bordered-white">
+              <Link to={initData.link} className="btn btn-bordered-white">
                 <span>{initData.btnText}</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

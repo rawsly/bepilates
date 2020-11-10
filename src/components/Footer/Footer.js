@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import _ from "lodash"
 import Img from "gatsby-image"
 
@@ -38,22 +38,22 @@ const Footer = () => {
     {
       key: "home",
       text: "Anasayfa",
-      link: "#",
+      url: "/",
     },
     {
       key: "privacy",
       text: "Gizlilik",
-      link: "#",
+      url: "#",
     },
     {
       key: "agreement",
       text: "Mesafeli Satış Sözleşmesi",
-      link: "#",
+      url: "#",
     },
     {
       key: "opportunities",
       text: "Fırsatlar",
-      link: "#",
+      url: "#",
     },
   ]
 
@@ -113,31 +113,20 @@ const Footer = () => {
               </div>
             </div>
             <div className="col-12 col-sm-6 col-lg-3">
-              {/* Footer Items */}
               <div className="footer-items">
-                {/* Footer Title */}
                 <h3 className="footer-title text-white mb-2">Son Tweetler</h3>
-                <ul>
-                  {/* {this.state.footerList_1.map((item, idx) => {
-                            return(
-                                <li key={`flo_${idx}`} className="py-2"><a className="text-white-50" href="#">{item.text}</a></li>
-                            );
-                        })} */}
-                </ul>
               </div>
             </div>
             <div className="col-12 col-sm-6 col-lg-3">
-              {/* Footer Items */}
               <div className="footer-items">
-                {/* Footer Title */}
                 <h3 className="footer-title text-white mb-2">Hakkımızda</h3>
                 <ul>
                   {_.map(aboutUsItems, item => {
                     return (
                       <li key={item.key} className="py-2">
-                        <a className="text-white-50" href={item.url}>
+                        <Link className="text-white-50" to={item.url}>
                           {item.text}
-                        </a>
+                        </Link>
                       </li>
                     )
                   })}
