@@ -10,7 +10,7 @@ import {
   DETAILED_FORM_REASONS,
 } from "../../constants"
 
-const DetailedForm = ({ fromUrl }) => {
+const DetailedForm = ({ id, fromUrl }) => {
   const [pageData, setPageData] = useState({
     title: "Bahçeşehir Aletli Pilates'te 5 Yıllık Tecrübe",
     content: `Bahçeşehir pilates studyoları arasında hizmet kalitesi ve başarı grafiğiyle öne çıkan pilates studyomuzda, pilates ve yoga özel ve grup dersleri sunuyoruz. Bahçeşehir Bahçecity’s residence da bulunan Pilates studyomuzda Reformer pilates ve yoga özel derslerine özel ders paketleri ile, grup derslerine grup ders paketleriyle katılabilirsiniz.
@@ -118,7 +118,7 @@ const DetailedForm = ({ fromUrl }) => {
   }
 
   return (
-    <section className="contact-area bg-gray ptb_100">
+    <section id={id} className="contact-area bg-gray ptb_100">
       <div className="container">
         <Title title={pageData.title} />
         <div className="row">
@@ -317,6 +317,11 @@ const DetailedForm = ({ fromUrl }) => {
 
 DetailedForm.propTypes = {
   fromUrl: PropTypes.string.isRequired,
+  id: PropTypes.string,
+};
+
+DetailedForm.defaultProps = {
+  id: '',
 }
 
 export default DetailedForm

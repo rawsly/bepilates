@@ -1,10 +1,11 @@
 import React, { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import _ from "lodash"
+import PropTypes from 'prop-types';
 import Img from "gatsby-image"
 import BackgroundImage from "gatsby-background-image"
 
-const Questions = () => {
+const Questions = ({ showBackground }) => {
   const images = useStaticQuery(graphql`
     query {
       i1: file(relativePath: { eq: "app-bg.png" }) {
@@ -77,7 +78,7 @@ const Questions = () => {
   return (
     <section className="section work-area ptb_100">
       {/* Work Slider Wrapper */}
-      <div className="work-wrapper d-none d-md-block">
+      {showBackground && (<div className="work-wrapper d-none d-md-block">
         <BackgroundImage
           className="work-slider-wrapper"
           fluid={wrapperBgImg}
@@ -100,7 +101,7 @@ const Questions = () => {
             })}
           </ul>
         </BackgroundImage>
-      </div>
+      </div>)}
       <div className="container">
         <div
           className="row justify-content-end justify-content-lg-between work-content"
@@ -125,4 +126,11 @@ const Questions = () => {
   )
 }
 
+Questions.propTypes = {
+  showBackground: PropTypes.bool,
+};
+
+Questions.defaultProps = {
+  showBackground: false
+}
 export default Questions

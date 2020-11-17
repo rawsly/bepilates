@@ -22,7 +22,7 @@ const IndexPage = () => {
       <About />
       <DetailedForm fromUrl="/" />
       <Carousel />
-      <Questions />
+      <Questions showBackground />
       {/* <BlogSection /> */}
       <Map />
     </Layout>
