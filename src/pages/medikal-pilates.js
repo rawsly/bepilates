@@ -119,7 +119,7 @@ export const pageQuery = graphql`
 
     tabImage1: file(relativePath: { eq: "tab-1.jpg" }) {
       childImageSharp {
-        fixed(height: 450) {
+        fixed(height: 400) {
           ...GatsbyImageSharpFixed
         }
       }
@@ -127,7 +127,7 @@ export const pageQuery = graphql`
     
     tabImage2: file(relativePath: { eq: "tab-2.jpg" }) {
       childImageSharp {
-        fixed(height: 450) {
+        fixed(height: 400) {
           ...GatsbyImageSharpFixed
         }
       }
@@ -135,7 +135,7 @@ export const pageQuery = graphql`
 
     tabImage3: file(relativePath: { eq: "tab-3.jpg" }) {
       childImageSharp {
-        fixed(height: 450) {
+        fixed(height: 400) {
           ...GatsbyImageSharpFixed
         }
       }
