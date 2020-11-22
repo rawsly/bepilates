@@ -602,3 +602,75 @@ h3 {
   width: 75px;
   height: 2px;
 }
+
+.Tabbed__container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Tabbed__tabContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.Tabbed__tab {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.Tabbed__tab:hover {
+  cursor: pointer;
+}
+
+.Tabbed__tab > p {
+  font-size: 18px;
+}
+
+.Tabbed__tab.selected > p {
+  font-weight: 600;
+}
+
+.Tabbed__tab.selected::after {
+  content: "";
+  background: rgba(0, 0, 0, 0)
+  linear-gradient(to right, #00e4e2 0%, #81ee8e 100%) repeat scroll 0 0;
+  position: relative;
+  height: 2px;
+  width: 100%;
+  top: 10px;
+}
+
+.Tabbed__tabContent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.Tabbed__tabImage, .Tabbed__tabDetails {
+  flex-grow: 1;
+  flex-basis: 0;
+  padding: 30px 15px;
+}
+
+.Tabbed__tabContentTitle {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.Tabbed__tabDetails p {
+  font-size: 16px;
+  line-height: 2;
+  margin-bottom: 16px;
+}
