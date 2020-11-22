@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import _ from "lodash"
 import PropTypes from "prop-types"
-import { navigate } from 'gatsby'
+import { navigate } from "gatsby"
 
 import Title from "../../components/Title/Title"
 
@@ -10,10 +10,12 @@ import {
   DETAILED_FORM_REASONS,
 } from "../../constants"
 
-const DetailedForm = ({ id, fromUrl }) => {
+const DetailedForm = ({ id, fromUrl, content }) => {
   const [pageData, setPageData] = useState({
     title: "Bahçeşehir Aletli Pilates'te 5 Yıllık Tecrübe",
-    content: `Bahçeşehir pilates studyoları arasında hizmet kalitesi ve başarı grafiğiyle öne çıkan pilates studyomuzda, pilates ve yoga özel ve grup dersleri sunuyoruz. Bahçeşehir Bahçecity’s residence da bulunan Pilates studyomuzda Reformer pilates ve yoga özel derslerine özel ders paketleri ile, grup derslerine grup ders paketleriyle katılabilirsiniz.
+    content:
+      content ||
+      `Bahçeşehir pilates studyoları arasında hizmet kalitesi ve başarı grafiğiyle öne çıkan pilates studyomuzda, pilates ve yoga özel ve grup dersleri sunuyoruz. Bahçeşehir Bahçecity’s residence da bulunan Pilates studyomuzda Reformer pilates ve yoga özel derslerine özel ders paketleri ile, grup derslerine grup ders paketleriyle katılabilirsiniz.
 
     Yoga ve Pilates Özel dersleri ile hedeflerinize hızlı ve kolay bir şekilde ulaşabilirsiniz. Aletli Pilates özel dersleri ve yoga Özel dersleri ile tüm üyelerimizle birebir ilgilenip, arzu ettikleri hedeflerine ulaşmaları için azami gayret sarfediyoruz. Tüm özel dersleri özel odalarda paylaşımsız işliyoruz. Pilates ve yoga özel derslerinde kişisel egzersiz programları ile üyelerimize benzersiz bir ders deneyimi sunabiliyoruz.
     
@@ -32,7 +34,7 @@ const DetailedForm = ({ id, fromUrl }) => {
     from: fromUrl,
   })
   const [error, setError] = useState("")
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false)
 
   const handleChange = event => {
     const { target } = event
@@ -52,23 +54,28 @@ const DetailedForm = ({ id, fromUrl }) => {
     }
   }
 
-  const isEmpty = (value) => _.isEmpty(_.trim(value));
+  const isEmpty = value => _.isEmpty(_.trim(value))
 
   const validateForm = () => {
     const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
-    const { firstName, lastName, email, phone } = formData;
-    if (isEmpty(firstName) || isEmpty(lastName) || isEmpty(email) || isEmpty(phone)) {
-      setError("Lütfen tüm alanları doldurun.");
-      return false;
+    const { firstName, lastName, email, phone } = formData
+    if (
+      isEmpty(firstName) ||
+      isEmpty(lastName) ||
+      isEmpty(email) ||
+      isEmpty(phone)
+    ) {
+      setError("Lütfen tüm alanları doldurun.")
+      return false
     }
 
-    const isEmailValid = EMAIL_REGEX.test(email);
+    const isEmailValid = EMAIL_REGEX.test(email)
     if (!isEmailValid) {
-      setError("Email geçersiz.");
-      return false;
+      setError("Email geçersiz.")
+      return false
     }
 
-    return true;
+    return true
   }
 
   const handleSubmit = e => {
@@ -89,10 +96,10 @@ const DetailedForm = ({ id, fromUrl }) => {
       Health: formData.healthProblems,
     })
 
-    const isValid = validateForm();
-    
+    const isValid = validateForm()
+
     if (isValid) {
-      setLoading(true);
+      setLoading(true)
       fetch("https://bepilatesyoga.agilecrm.com/formsubmit?cors=true", {
         method: "POST",
         headers: {
@@ -105,16 +112,15 @@ const DetailedForm = ({ id, fromUrl }) => {
           setError("")
           setFormData({})
           console.log("res:", data)
-          setLoading(false);
+          setLoading(false)
           navigate("/tesekkurler")
         })
         .catch(err => {
           setError("Bir hata oluştu. Lütfen daha sonra tekrar deneyin.")
-          setLoading(false);
+          setLoading(false)
           console.log("error: ", err)
         })
     }
-
   }
 
   return (
@@ -292,11 +298,13 @@ const DetailedForm = ({ id, fromUrl }) => {
                     <div className="col-12">
                       <button
                         disabled={loading}
-                        className={`btn btn-bordered form-submit-button ${loading ? 'btn-loading' : ''}`}
+                        className={`btn btn-bordered form-submit-button ${
+                          loading ? "btn-loading" : ""
+                        }`}
                         type="submit"
                         onClick={handleSubmit}
                       >
-                        {loading ? 'Gönderiliyor...' : 'Ücretsiz Dene'}
+                        {loading ? "Gönderiliyor..." : "Ücretsiz Dene"}
                       </button>
                     </div>
                   </div>
@@ -318,10 +326,12 @@ const DetailedForm = ({ id, fromUrl }) => {
 DetailedForm.propTypes = {
   fromUrl: PropTypes.string.isRequired,
   id: PropTypes.string,
-};
+  content: PropTypes.string,
+}
 
 DetailedForm.defaultProps = {
-  id: '',
+  id: "",
+  content: null,
 }
 
 export default DetailedForm

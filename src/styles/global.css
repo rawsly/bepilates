@@ -674,3 +674,7 @@ h3 {
   line-height: 2;
   margin-bottom: 16px;
 }
+
+.MatPilates__center {
+  margin: 0 auto;
+}
