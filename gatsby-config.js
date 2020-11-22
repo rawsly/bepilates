@@ -85,15 +85,13 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          {
-            family: `Poppins`,
-            variants: [`300`, `400`, `500`, `600`],
-          },
+          `Poppins\:300,400,400i,500,500i,600` // you can also specify font weights and styles
         ],
-      },
+        display: 'swap'
+      }
     },
     `gatsby-plugin-feed`,
     {
